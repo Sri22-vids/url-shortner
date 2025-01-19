@@ -37,6 +37,7 @@ app.post('/shorten-url', async (req, res) => {})
 
 // ToDo: Complete Below Implementation
 // this will be used to redirect users based on the short url provided
+app.get("/:id", async(req, res) => {})
 
 
 // starting a http server on a port
