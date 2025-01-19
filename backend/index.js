@@ -35,6 +35,9 @@ app.get("/", (req, res) => {
 // this is the endpoint that will be used to shorten a URL
 app.post('/shorten-url', async (req, res) => {})
 
+// ToDo: Complete Below Implementation
+// this will be used to redirect users based on the short url provided
+
 
 // starting a http server on a port
 const PORT = process.env.PORT || 4000;
