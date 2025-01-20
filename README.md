@@ -1,3 +1,13 @@
+# About
+
+This repository contains the starter and finished code for a series I am doing on YouTube on how to build a custom URL shortener.
+
+> Starter -> Use this branch to follow along in the tutorial
+
+> Finish -> If you get lost in the tutorial use this branch to see the completed code
+
+Youtube Video: https://youtu.be/IGS4RQgh6cw
+
 # Pre req
 
 You need to have Nodejs, Redis and Git installed before you can proceed
