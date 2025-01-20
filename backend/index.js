@@ -33,11 +33,50 @@ app.get("/", (req, res) => {
 
 // ToDo: complete below implementation
 // this is the endpoint that will be used to shorten a URL
-app.post('/shorten-url', async (req, res) => {})
+app.post('/shorten-url', async (req, res) => {
+  const { originalUrl } = req.body;
+  if(!originalUrl || !originalUrl.trim()){
+    res.status(400).send("Original URL is required")
+  }
+  try{
+    const shortId = nanoid(5)
+    const isShortIdUnique = await redisClient.get(`${shortId}`)
+    if(isShortIdUnique){
+      app.post('/shorten-url', req, res)
+    }
+    const urlData = {
+      id: shortId,
+      originalUrl: originalUrl,
+      shortUrl: `http://localhost:4000/${shortId}`
+    }
+    await redisClient.setEx(`${shortId}`, 3600, JSON.stringify(urlData))
+    res.status(200).send(urlData)
+  }
+  catch(e){
+    console.log(e)
+    res.status(500).send("Internal Server erro")
+  }
+})
 
 // ToDo: Complete Below Implementation
 // this will be used to redirect users based on the short url provided
-app.get("/:id", async(req, res) => {})
+app.get("/:id", async(req, res) => {
+  const { id } = req.params
+  try{
+    const cachedData = await redisClient.get(`${id}`)
+    if(cachedData){
+      const parsedData = JSON.parse(cachedData);
+      res.redirect(parsedData.originalUrl)
+    }
+    else{
+      res.status(404).send("URL not found")
+    }
+  }
+  catch(e){
+    console.log(e)
+    res.status(500).send("Internal Server erro")
+  }
+})
 
 
 // starting a http server on a port
