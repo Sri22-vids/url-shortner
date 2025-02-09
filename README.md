@@ -5,6 +5,7 @@ This repository contains the starter and finished code for a series I am doing o
 For Video 2:
 > EP2 -> Use this branch to follow along in the tutorial
 > EP2-Finish -> if you get lost and want to see the completed code
+Video 2: https://youtu.be/7zAxILRcu9Y
 
 > Starter -> Use this branch to follow along in the tutorial
 
