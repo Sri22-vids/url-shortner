@@ -2,6 +2,10 @@
 
 This repository contains the starter and finished code for a series I am doing on YouTube on how to build a custom URL shortener.
 
+For Video 2:
+> EP2 -> Use this branch to follow along in the tutorial
+> EP2-Finish -> if you get lost and want to see the completed code
+
 > Starter -> Use this branch to follow along in the tutorial
 
 > Finish -> If you get lost in the tutorial use this branch to see the completed code
